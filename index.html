@@ -1671,162 +1671,311 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             <button class="continue-button" onclick="nextScreen()">Continuar</button>
         </div>
 
-        <!-- Screen 19: Comparison & Personal Plan -->
-        <div class="screen comparison-screen" id="screen19" style="padding: 15px 10px;">
-            <!-- Header Title -->
-            <div class="comparison-title" style="font-size: 20px; font-weight: 700; color: #1a202c; text-align: center; margin-bottom: 20px; line-height: 1.3;">
-                <span id="userName2">Nome</span>, você está pronta para <span style="color: #28a745;">transformar seu corpo</span> e sua <span style="color: #28a745;">saúde?</span>
+        <!-- Screen 19: Complete Pre-Checkout Result & Offer Experience -->
+        <div class="screen comparison-screen" id="screen19" style="padding: 10px 8px;">
+            
+            <!-- 1. PROGRESSO E ABERTURA DE RESULTADO -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: #e6fffa; color: #234e52; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid #b2f5ea; margin-bottom: 10px;">
+                    <span>✅</span> Quiz Concluído — Análise Pronta
+                </div>
+                <h1 style="font-size: 22px; font-weight: 800; color: #1a202c; margin: 0 0 8px 0; line-height: 1.3;">
+                    Seu resultado está pronto, <span id="userName2" style="color: #28a745;">Nome</span>!
+                </h1>
+                <p style="font-size: 13px; color: #4a5568; margin: 0; line-height: 1.5; padding: 0 10px;">
+                    Analisamos suas respostas e identificamos os principais pontos que afetam seu metabolismo e seu objetivo de peso.
+                </p>
             </div>
 
-            <!-- Card 1: Resumo Personalizado do Peso -->
-            <div class="weight-summary-card" style="background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
-                <div style="font-size: 15px; font-weight: 700; color: #2d3748; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span style="font-size: 18px;">📊</span> Resumo do Seu Objetivo de Peso
+            <!-- 2. RESUMO PERSONALIZADO DO PERFIL DO USUÁRIO -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 18px; margin-bottom: 18px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="font-size: 14px; font-weight: 700; color: #2d3748; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <span>📊</span> Resumo do Seu Perfil
                 </div>
                 
-                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 16px; background: #f7fafc; padding: 12px; border-radius: 12px;">
-                    <div style="flex: 1;">
-                        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; font-weight: 600; margin-bottom: 4px;">Peso Atual</div>
-                        <div style="font-size: 22px; font-weight: 800; color: #e53e3e;" id="summaryCurrentWeight">70 kg</div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px;">
+                    <div style="background: #f7fafc; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #edf2f7;">
+                        <div style="font-size: 11px; text-transform: uppercase; color: #718096; font-weight: 600;">Peso Atual</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #e53e3e;" id="summaryCurrentWeight">70 kg</div>
                     </div>
-                    <div style="width: 1px; height: 32px; background: #cbd5e0;"></div>
-                    <div style="flex: 1;">
-                        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; font-weight: 600; margin-bottom: 4px;">Peso Desejado</div>
-                        <div style="font-size: 22px; font-weight: 800; color: #38a169;" id="summaryGoalWeight">60 kg</div>
+                    <div style="background: #f7fafc; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #edf2f7;">
+                        <div style="font-size: 11px; text-transform: uppercase; color: #718096; font-weight: 600;">Altura</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #2b6cb0;" id="summaryHeight">170 cm</div>
+                    </div>
+                    <div style="background: #f7fafc; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #edf2f7;">
+                        <div style="font-size: 11px; text-transform: uppercase; color: #718096; font-weight: 600;">Peso Desejado</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #38a169;" id="summaryGoalWeight">60 kg</div>
+                    </div>
+                    <div style="background: #f7fafc; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #edf2f7;">
+                        <div style="font-size: 11px; text-transform: uppercase; color: #718096; font-weight: 600;">Meta de Redução</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #d69e2e;" id="summaryGoalDiffVal">10 kg</div>
                     </div>
                 </div>
 
-                <div style="background: #f0fff4; border-radius: 10px; padding: 12px 14px; color: #22543d; font-size: 13px; font-weight: 600; border: 1px solid #c6f6d5;" id="summaryGoalText">
-                    🎯 Seu objetivo principal é reduzir <strong>10 kg</strong> de gordura.
+                <div style="background: #f0fff4; border-radius: 10px; padding: 10px 12px; color: #22543d; font-size: 12px; font-weight: 600; border: 1px solid #c6f6d5; text-align: center;" id="summaryGoalText">
+                    🎯 Seu objetivo principal é reduzir aproximadamente 10 kg de gordura.
                 </div>
             </div>
 
-            <!-- Card 2: Análise de Métricas do Corpo -->
-            <div style="background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                <div style="font-size: 15px; font-weight: 700; color: #2d3748; margin-bottom: 16px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span style="font-size: 18px;">🧬</span> Diagnóstico do Seu Metabolismo e Saúde
+            <!-- 3. IMC COM GRÁFICO HORIZONTAL MODERNO E PONTEIRO DINÂMICO -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 18px; margin-bottom: 18px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="font-size: 14px; font-weight: 700; color: #2d3748; margin-bottom: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <span>⚖️</span> Índice de Massa Corporal (IMC)
+                </div>
+                
+                <div style="display: flex; justify-content: center; align-items: baseline; gap: 8px; margin-bottom: 16px;">
+                    <span style="font-size: 28px; font-weight: 900; color: #2d3748;" id="bmiValPreCheckout">24.22</span>
+                    <span style="font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #e6fffa; color: #234e52;" id="bmiCatPreCheckout">Peso normal</span>
+                </div>
+
+                <!-- Gráfico Horizontal com Marcador Dinâmico -->
+                <div class="imc-scale-wrapper" style="position: relative; margin: 25px 0 15px 0;">
+                    <div class="imc-scale" style="display: flex; height: 20px; border-radius: 10px; overflow: hidden; position: relative; background: #e2e8f0;">
+                        <div class="imc-segment abaixo" id="segAbaixoPre" style="flex: 20; background: #17a2b8; display: flex; align-items: center; justify-content: center; color: white; font-size: 9px; font-weight: bold; transition: opacity 0.3s;">Abaixo</div>
+                        <div class="imc-segment normal" id="segNormalPre" style="flex: 30; background: #28a745; display: flex; align-items: center; justify-content: center; color: white; font-size: 9px; font-weight: bold; transition: opacity 0.3s;">Normal</div>
+                        <div class="imc-segment sobrepeso" id="segSobrepesoPre" style="flex: 25; background: #ffc107; display: flex; align-items: center; justify-content: center; color: #333; font-size: 9px; font-weight: bold; transition: opacity 0.3s;">Sobrepeso</div>
+                        <div class="imc-segment obesidade" id="segObesidadePre" style="flex: 25; background: #dc3545; display: flex; align-items: center; justify-content: center; color: white; font-size: 9px; font-weight: bold; transition: opacity 0.3s;">Obesidade</div>
+                    </div>
+                    
+                    <!-- Ponteiro Dinâmico Posicionado pelo JS -->
+                    <div id="imcMarkerPreCheckout" style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); transition: left 0.4s ease-out; display: flex; flex-direction: column; align-items: center; z-index: 10;">
+                        <span id="imcMarkerTextPre" style="background: #1a202c; color: #fff; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; white-space: nowrap;">24.22</span>
+                        <div style="width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid #1a202c;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CARDS DE MÉTRICAS DIAGNÓSTICAS -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 18px; margin-bottom: 18px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="font-size: 14px; font-weight: 700; color: #2d3748; margin-bottom: 14px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <span>🧬</span> Diagnóstico das Suas Métricas
                 </div>
 
                 <!-- Metric 1: Metabolismo -->
-                <div style="background: #f8fafc; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; border: 1px solid #edf2f7;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="background: #f8fafc; border-radius: 12px; padding: 12px; margin-bottom: 10px; border: 1px solid #edf2f7;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                         <span style="font-size: 13px; font-weight: 700; color: #2d3748;">🔥 Metabolismo</span>
-                        <span id="metricValMetabolism" style="font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #fff5f5; color: #9b2c2c;">Lento</span>
+                        <span id="metricValMetabolism" style="font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #fff5f5; color: #9b2c2c;">Lento</span>
                     </div>
-                    <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 6px;">
-                        <div id="barMetaBefore" style="width: 35%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 4px; transition: width 0.5s ease;"></div>
+                    <div style="height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-bottom: 6px;">
+                        <div id="barMetaBefore" style="width: 35%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 3px;"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: #718096;">
-                        <span>Estado Atual: <strong id="labelMetaBefore" style="color: #e53e3e;">Lento</strong></span>
-                        <span style="color: #38a169; font-weight: 600;">Meta: Acelerado ✨</span>
-                    </div>
+                    <p style="font-size: 11px; color: #718096; margin: 0; line-height: 1.4;">
+                        Seu resultado indica que a velocidade da sua queima calórica pode estar reduzida no momento.
+                    </p>
                 </div>
 
-                <!-- Metric 2: Nível de estresse -->
-                <div style="background: #f8fafc; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; border: 1px solid #edf2f7;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <!-- Metric 2: Estresse -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 12px; margin-bottom: 10px; border: 1px solid #edf2f7;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                         <span style="font-size: 13px; font-weight: 700; color: #2d3748;">🧘 Nível de Estresse</span>
-                        <span id="metricValStress" style="font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #fff5f5; color: #9b2c2c;">Alto</span>
+                        <span id="metricValStress" style="font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #fff5f5; color: #9b2c2c;">Alto</span>
                     </div>
-                    <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 6px;">
-                        <div id="barStressBefore" style="width: 80%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 4px; transition: width 0.5s ease;"></div>
+                    <div style="height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-bottom: 6px;">
+                        <div id="barStressBefore" style="width: 80%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 3px;"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: #718096;">
-                        <span>Estado Atual: <strong id="labelStressBefore" style="color: #e53e3e;">Alto</strong></span>
-                        <span style="color: #38a169; font-weight: 600;">Meta: Baixo (Equilibrado) 🌿</span>
-                    </div>
+                    <p style="font-size: 11px; color: #718096; margin: 0; line-height: 1.4;">
+                        Sua rotina indica picos de tensão que influenciam na retenção de líquidos e ansiedade alimentícia.
+                    </p>
                 </div>
 
-                <!-- Metric 3: Nível de energia -->
-                <div style="background: #f8fafc; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; border: 1px solid #edf2f7;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <!-- Metric 3: Energia -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 12px; margin-bottom: 10px; border: 1px solid #edf2f7;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                         <span style="font-size: 13px; font-weight: 700; color: #2d3748;">⚡ Nível de Energia</span>
-                        <span id="metricValEnergy" style="font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #fff5f5; color: #9b2c2c;">Fraco</span>
+                        <span id="metricValEnergy" style="font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #fff5f5; color: #9b2c2c;">Fraco</span>
                     </div>
-                    <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 6px;">
-                        <div id="barEnergyBefore" style="width: 30%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 4px; transition: width 0.5s ease;"></div>
+                    <div style="height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-bottom: 6px;">
+                        <div id="barEnergyBefore" style="width: 30%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 3px;"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: #718096;">
-                        <span>Estado Atual: <strong id="labelEnergyBefore" style="color: #e53e3e;">Fraco</strong></span>
-                        <span style="color: #38a169; font-weight: 600;">Meta: Forte (Disposição) ⚡</span>
-                    </div>
+                    <p style="font-size: 11px; color: #718096; margin: 0; line-height: 1.4;">
+                        Seus níveis de disposição diária apresentam margem para fortalecimento com nutrientes adequados.
+                    </p>
                 </div>
 
-                <!-- Metric 4: Riscos de doenças -->
-                <div style="background: #f8fafc; border-radius: 12px; padding: 12px 14px; border: 1px solid #edf2f7;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <!-- Metric 4: Riscos de Saúde -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 12px; border: 1px solid #edf2f7;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                         <span style="font-size: 13px; font-weight: 700; color: #2d3748;">🛡️ Alerta de Riscos de Saúde</span>
-                        <span id="metricValRisk" style="font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #fff5f5; color: #9b2c2c;">Alto</span>
+                        <span id="metricValRisk" style="font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #fff5f5; color: #9b2c2c;">Alto</span>
                     </div>
-                    <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 6px;">
-                        <div id="barRiskBefore" style="width: 80%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 4px; transition: width 0.5s ease;"></div>
+                    <div style="height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-bottom: 6px;">
+                        <div id="barRiskBefore" style="width: 80%; height: 100%; background: linear-gradient(90deg, #feb2b2, #e53e3e); border-radius: 3px;"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: #718096;">
-                        <span>Risco Atual: <strong id="labelRiskBefore" style="color: #e53e3e;">Alto</strong></span>
-                        <span style="color: #38a169; font-weight: 600;">Meta: Baixo (Protegida) 💚</span>
+                    <p style="font-size: 11px; color: #718096; margin: 0; line-height: 1.4;">
+                        Indicador de alerta baseado no IMC e metas informadas durante o quiz.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5. INTERPRETAÇÃO DOS RESULTADOS: O QUE SEU RESULTADO MOSTRA -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 18px; margin-bottom: 18px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                <div style="font-size: 15px; font-weight: 700; color: #2d3748; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                    <span>📌</span> O que seu resultado mostra
+                </div>
+                <p style="font-size: 12px; color: #718096; margin-bottom: 12px; line-height: 1.4;">
+                    Com base nas informações que você forneceu, destacamos 3 pontos principais da sua rotina:
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #2d3748; line-height: 1.4;">
+                        <span style="color: #38a169; font-weight: bold;">✓</span>
+                        <span>Seu objetivo de peso está determinado abaixo do seu peso atual.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #2d3748; line-height: 1.4;">
+                        <span style="color: #38a169; font-weight: bold;">✓</span>
+                        <span>Seu resultado indica que existe espaço para otimizar sua rotina e acelerar seu metabolismo.</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #2d3748; line-height: 1.4;">
+                        <span style="color: #38a169; font-weight: bold;">✓</span>
+                        <span>Pequenas mudanças consistentes no método certo ajudam na evolução rápida do seu objetivo.</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 3: Como funciona o Plano? -->
-            <div class="plan-section" style="background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: left;">
-                <div style="font-size: 17px; font-weight: 700; color: #2d3748; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                    <span style="font-size: 20px;">📋</span> Como funciona o seu Plano Personalizado?
+            <!-- 6. TRANSIÇÃO PSICOLÓGICA PARA A OFERTA -->
+            <div style="background: linear-gradient(135deg, #ebf8ff, #e6fffa); border-radius: 16px; padding: 18px; margin-bottom: 20px; border: 1px solid #bee3f8; text-align: center;">
+                <div style="font-size: 15px; font-weight: 800; color: #2b6cb0; margin-bottom: 6px;">
+                    💡 Agora vem a parte mais importante.
                 </div>
+                <div style="font-size: 13px; color: #2c5282; line-height: 1.5;">
+                    Você já descobriu onde está hoje. O próximo passo é saber exatamente o que fazer a partir daqui para atingir seu objetivo.
+                </div>
+            </div>
+
+            <!-- 7. APRESENTAÇÃO DA SOLUÇÃO (MOUNJARO CASEIRO) -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="background: #e6fffa; color: #234e52; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; border: 1px solid #b2f5ea; text-transform: uppercase; letter-spacing: 0.5px;">Seu Próximo Passo Personalizado</span>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #1a202c; margin: 8px 0 4px 0;">Mounjaro Caseiro</h3>
+                    <p style="font-size: 12px; color: #718096; margin: 0;">Fórmula e protocolo de aceleração metabolicamente seguro</p>
+                </div>
+
                 <div style="font-size: 13px; line-height: 1.6; color: #4a5568; margin-bottom: 16px;">
-                    Com base nas suas respostas e metas de peso, desenvolvemos um protocolo 100% sob medida para você ativar o <strong>Mounjaro Caseiro</strong>. A fórmula age acelerando seu metabolismo em até 4 semanas, respeitando sua rotina sem exigir dietas restritivas ou sacrifícios extremos.
+                    Desenvolvemos o protocolo 100% prático do <strong>Mounjaro Caseiro</strong> para você potencializar a queima de gordura em até 4 semanas, respeitando sua rotina sem exigir dietas restritivas ou sacrifícios extremos.
                 </div>
 
-                <div style="background: #f7fafc; border-radius: 12px; padding: 16px; border: 1px solid #edf2f7;">
-                    <div style="font-size: 14px; font-weight: 700; color: #2b6cb0; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
-                        <span>🎁</span> Seu Plano Exclusivo Inclui:
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; background: #f7fafc; padding: 12px; border-radius: 10px; border: 1px solid #edf2f7;">
+                    <div style="font-size: 12px; font-weight: 700; color: #2d3748; margin-bottom: 4px;">Benefícios Principais:</div>
+                    <div style="display: flex; gap: 8px; font-size: 12px; color: #4a5568;"><span style="color: #38a169; font-weight: bold;">✓</span> Plano simples de seguir no dia a dia</div>
+                    <div style="display: flex; gap: 8px; font-size: 12px; color: #4a5568;"><span style="color: #38a169; font-weight: bold;">✓</span> Orientação prática sem passar fome ou dietas malucas</div>
+                    <div style="display: flex; gap: 8px; font-size: 12px; color: #4a5568;"><span style="color: #38a169; font-weight: bold;">✓</span> Estratégias para redução de inchaço e ansiedade</div>
+                    <div style="display: flex; gap: 8px; font-size: 12px; color: #4a5568;"><span style="color: #38a169; font-weight: bold;">✓</span> Ferramentas para acompanhar seu progresso diário</div>
+                    <div style="display: flex; gap: 8px; font-size: 12px; color: #4a5568;"><span style="color: #38a169; font-weight: bold;">✓</span> Acesso imediato no seu e-mail</div>
+                </div>
+            </div>
+
+            <!-- 8. VALOR PERCEBIDO & STACK DE BÔNUS EXCLUSIVOS -->
+            <div style="background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div style="font-size: 15px; font-weight: 800; color: #2d3748; margin-bottom: 14px; text-align: center;">
+                    🎁 O que você vai receber hoje:
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #edf2f7;">
+                        <span style="font-size: 18px;">📖</span>
+                        <div style="font-size: 12px;">
+                            <strong style="color: #2d3748;">Protocolo Mounjaro Caseiro Completo</strong>
+                            <p style="margin: 2px 0 0 0; color: #718096; font-size: 11px;">Guia passo a passo de preparo e consumo ideal.</p>
+                        </div>
                     </div>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <div style="display: flex; gap: 10px; align-items: flex-start;">
-                            <span style="background: #ebf8ff; color: #3182ce; padding: 4px 8px; border-radius: 6px; font-size: 14px; font-weight: bold;">01</span>
-                            <div>
-                                <strong style="font-size: 13px; color: #2d3748;">Como Usar o Mounjaro do Jeito Certo</strong>
-                                <p style="font-size: 12px; color: #718096; margin: 2px 0 0 0; line-height: 1.4;">
-                                    Protocolo prático para queimar gordura de forma segura, sem perder massa magra e sem sentir fome excessiva.
-                                </p>
-                            </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #edf2f7;">
+                        <span style="font-size: 18px;">🌿</span>
+                        <div style="font-size: 12px;">
+                            <strong style="color: #2d3748;">Bônus 1: Queima de Gordura Acelerada</strong>
+                            <p style="margin: 2px 0 0 0; color: #718096; font-size: 11px;">O que comer para potencializar os resultados.</p>
                         </div>
-
-                        <div style="display: flex; gap: 10px; align-items: flex-start;">
-                            <span style="background: #ebf8ff; color: #3182ce; padding: 4px 8px; border-radius: 6px; font-size: 14px; font-weight: bold;">02</span>
-                            <div>
-                                <strong style="font-size: 13px; color: #2d3748;">Definição de Metas Diárias</strong>
-                                <p style="font-size: 12px; color: #718096; margin: 2px 0 0 0; line-height: 1.4;">
-                                    Passo a passo simples para manter seu progresso constante todos os dias.
-                                </p>
-                            </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #edf2f7;">
+                        <span style="font-size: 18px;">👩</span>
+                        <div style="font-size: 12px;">
+                            <strong style="color: #2d3748;">Bônus 2: Detox Desinchar em 7 Dias</strong>
+                            <p style="margin: 2px 0 0 0; color: #718096; font-size: 11px;">Estratégia rápida para secar a barriga.</p>
                         </div>
-
-                        <div style="display: flex; gap: 10px; align-items: flex-start;">
-                            <span style="background: #ebf8ff; color: #3182ce; padding: 4px 8px; border-radius: 6px; font-size: 14px; font-weight: bold;">03</span>
-                            <div>
-                                <strong style="font-size: 13px; color: #2d3748;">Planilha de Acompanhamento</strong>
-                                <p style="font-size: 12px; color: #718096; margin: 2px 0 0 0; line-height: 1.4;">
-                                    Acompanhe sua evolução semanal e veja seu peso reduzindo visualmente.
-                                </p>
-                            </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #edf2f7;">
+                        <span style="font-size: 18px;">👫</span>
+                        <div style="font-size: 12px;">
+                            <strong style="color: #2d3748;">Bônus 3: Anti-Efeito Sanfona</strong>
+                            <p style="margin: 2px 0 0 0; color: #718096; font-size: 11px;">Como manter o peso perdido definitivamente.</p>
                         </div>
-
-                        <div style="display: flex; gap: 10px; align-items: flex-start; background: #f0fff4; padding: 8px 10px; border-radius: 8px; border: 1px dashed #38a169;">
-                            <span style="font-size: 16px;">🔥</span>
-                            <div>
-                                <strong style="font-size: 13px; color: #22543d;">+ 4 Bônus Exclusivos Gratuitos</strong>
-                                <p style="font-size: 12px; color: #2f855a; margin: 1px 0 0 0;">
-                                    Inclusos hoje na sua inscrição sem custo adicional.
-                                </p>
-                            </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px; border-radius: 10px; border: 1px solid #edf2f7;">
+                        <span style="font-size: 18px;">⚡</span>
+                        <div style="font-size: 12px;">
+                            <strong style="color: #2d3748;">Bônus 4: Metabolismo PRO 5x</strong>
+                            <p style="margin: 2px 0 0 0; color: #718096; font-size: 11px;">Técnicas avançadas para acelerar a queima calórica.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button class="continue-button" onclick="nextScreen()">Continuar</button>
+            <!-- 9. OFERTA & TABELA DE PREÇO -->
+            <div style="background: linear-gradient(135deg, #28a745, #20c997); border-radius: 20px; padding: 24px 16px; margin-bottom: 20px; text-align: center; color: white; box-shadow: 0 8px 20px rgba(40,167,69,0.25);">
+                <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; margin-bottom: 6px;">
+                    Condição Especial Disponível Nesta Página
+                </div>
+                <div style="font-size: 14px; text-decoration: line-through; opacity: 0.8; margin-bottom: 4px;">
+                    De: R$ 27,00
+                </div>
+                <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">
+                    Por Apenas Pagamento Único:
+                </div>
+                <div style="font-size: 42px; font-weight: 900; line-height: 1; margin-bottom: 8px;">
+                    R$ 5<span style="font-size: 26px;">,99</span>
+                </div>
+                <div style="font-size: 12px; opacity: 0.95; font-weight: 500;">
+                    Sem mensalidades ou cobranças adicionais!
+                </div>
+            </div>
+
+            <!-- 10. CTA PRINCIPAL VISUALMENTE DOMINANTE -->
+            <div style="margin-bottom: 20px; text-align: center;">
+                <button class="cta-button" style="width: 100%; max-width: 400px; font-size: 18px; font-weight: 800; padding: 18px 20px; background: linear-gradient(185deg, #28a745, #218838); color: white; border: none; border-radius: 14px; box-shadow: 0 6px 16px rgba(40,167,69,0.4); cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: transform 0.2s;" onclick="window.open('https://comprasprotegidas.com.br/ODZtfVaG', '_blank')">
+                    QUERO ACESSAR MEU PLANO 😍
+                </button>
+            </div>
+
+            <!-- 11. REDUÇÃO DE FRICÇÃO & GARANTIA DE SEGURANÇA -->
+            <div style="background: #ffffff; border-radius: 14px; padding: 16px; margin-bottom: 24px; border: 1px solid #e2e8f0; text-align: center;">
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; font-size: 11px; color: #4a5568; margin-bottom: 12px;">
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">⚡ <strong>Acesso Imediato</strong></span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">🔒 <strong>Pagamento Seguro</strong></span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">🛡️ <strong>Compra Protegida</strong></span>
+                </div>
+
+                <div style="background: #f7fafc; border-radius: 10px; padding: 12px; border: 1px dashed #cbd5e0; text-align: left; display: flex; gap: 10px; align-items: center;">
+                    <span style="font-size: 26px;">🏆</span>
+                    <div>
+                        <strong style="font-size: 12px; color: #2d3748;">Garantia de Satisfação de 30 Dias</strong>
+                        <p style="font-size: 11px; color: #718096; margin: 2px 0 0 0; line-height: 1.3;">
+                            Seu risco é zero. Se em até 30 dias você não aprovar o conteúdo, você pode solicitar seu reembolso sem complicações.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. PROVA SOCIAL & DEPOIMENTOS REALISTAS -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <div style="font-size: 15px; font-weight: 800; color: #2d3748; margin-bottom: 14px;">
+                    Quem Usou o Mounjaro Caseiro Aprovou 😍 👇
+                </div>
+                <div class="flavinha-image" style="margin-bottom: 15px;">
+                    <img src="images/y59mLNmd6RcX.jpg" alt="Transformação da Flavinha" style="width: 100%; max-width: 400px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+
+            <!-- 13. CTA FINAL REITERADO -->
+            <div style="background: #f8fafc; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #e2e8f0; margin-bottom: 15px;">
+                <div style="font-size: 16px; font-weight: 800; color: #1a202c; margin-bottom: 6px;">
+                    Pronta para começar a sua transformação?
+                </div>
+                <div style="font-size: 12px; color: #718096; margin-bottom: 14px;">
+                    Garanta seu acesso completo por apenas <strong>R$ 5,99</strong> hoje.
+                </div>
+                <button class="cta-button" style="width: 100%; max-width: 400px; font-size: 17px; font-weight: 800; padding: 16px 20px; background: linear-gradient(185deg, #28a745, #218838); color: white; border: none; border-radius: 14px; box-shadow: 0 6px 16px rgba(40,167,69,0.4); cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;" onclick="window.open('https://comprasprotegidas.com.br/ODZtfVaG', '_blank')">
+                    QUERO ACESSAR MEU PLANO AGORA 😍
+                </button>
+            </div>
         </div>
 
         <!-- Screen 20: Bonus -->
@@ -2113,8 +2262,10 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             const energy = 'Fraco';
             const healthRisk = 'Alto';
 
+            const height = parseFloat(currentHeight) || 170;
             return {
                 weight,
+                height,
                 goal,
                 weightDiff,
                 bmi: bmiRes.bmi,
@@ -2255,7 +2406,7 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             const res = calculateQuizResults();
             if (!res) return;
 
-            // Update Screen 18 (IMC)
+            // Update Screen 18 (IMC Alert)
             const bmiHeaderVal = document.getElementById('bmiHeaderVal');
             if (bmiHeaderVal) bmiHeaderVal.textContent = res.bmi.toFixed(2);
 
@@ -2270,7 +2421,7 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                 imcCategoryText.style.color = res.categoryColor;
             }
 
-            // Highlights
+            // Screen 18 Highlights
             ['segAbaixo', 'segNormal', 'segSobrepeso', 'segObesidade'].forEach(id => {
                 const elem = document.getElementById(id);
                 if (elem) elem.style.opacity = '0.4';
@@ -2286,18 +2437,51 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
 
             // Update Screen 19 (Summary & Metrics)
             const summaryCurrentWeight = document.getElementById('summaryCurrentWeight');
+            const summaryHeight = document.getElementById('summaryHeight');
             const summaryGoalWeight = document.getElementById('summaryGoalWeight');
+            const summaryGoalDiffVal = document.getElementById('summaryGoalDiffVal');
             const summaryGoalText = document.getElementById('summaryGoalText');
 
             if (summaryCurrentWeight) summaryCurrentWeight.textContent = res.weight + ' kg';
+            if (summaryHeight) summaryHeight.textContent = res.height + ' cm';
             if (summaryGoalWeight) summaryGoalWeight.textContent = res.goal + ' kg';
+            if (summaryGoalDiffVal) summaryGoalDiffVal.textContent = res.weightDiff + ' kg';
+
             if (summaryGoalText) {
                 if (res.weightDiff > 0) {
-                    summaryGoalText.innerHTML = `🎯 Seu objetivo principal é reduzir <strong>${res.weightDiff} kg</strong> de gordura.`;
+                    summaryGoalText.innerHTML = `🎯 Seu objetivo principal é reduzir aproximadamente <strong>${res.weightDiff} kg</strong> de gordura.`;
                 } else {
                     summaryGoalText.innerHTML = `🎯 Seu objetivo é manter seu corpo no peso ideal de <strong>${res.goal} kg</strong>.`;
                 }
             }
+
+            // Screen 19 IMC Gauge & Marker Update
+            const bmiValPreCheckout = document.getElementById('bmiValPreCheckout');
+            const bmiCatPreCheckout = document.getElementById('bmiCatPreCheckout');
+            const imcMarkerPreCheckout = document.getElementById('imcMarkerPreCheckout');
+            const imcMarkerTextPre = document.getElementById('imcMarkerTextPre');
+
+            if (bmiValPreCheckout) bmiValPreCheckout.textContent = res.bmi.toFixed(2);
+            if (bmiCatPreCheckout) {
+                bmiCatPreCheckout.textContent = res.category;
+                bmiCatPreCheckout.style.color = res.categoryColor;
+            }
+            if (imcMarkerTextPre) imcMarkerTextPre.textContent = res.bmi.toFixed(2);
+            if (imcMarkerPreCheckout) imcMarkerPreCheckout.style.left = res.markerPos + '%';
+
+            // Screen 19 Gauge Highlights
+            ['segAbaixoPre', 'segNormalPre', 'segSobrepesoPre', 'segObesidadePre'].forEach(id => {
+                const elem = document.getElementById(id);
+                if (elem) elem.style.opacity = '0.4';
+            });
+            const activePreSegMap = {
+                'abaixo': 'segAbaixoPre',
+                'normal': 'segNormalPre',
+                'sobrepeso': 'segSobrepesoPre',
+                'obesidade': 'segObesidadePre'
+            };
+            const activePreElem = document.getElementById(activePreSegMap[res.categoryKey]);
+            if (activePreElem) activePreElem.style.opacity = '1.0';
 
             // 1. Metabolismo
             const metricValMetabolism = document.getElementById('metricValMetabolism');
