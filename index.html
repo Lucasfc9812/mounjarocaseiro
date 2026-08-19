@@ -1584,27 +1584,38 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             </div>
         </div>
 
-        <!-- Screen 18: IMC Alert -->
+        <!-- Screen 18: IMC Alert (Aparece APÓS as telas de carregamento 16 e 17) -->
         <div class="screen alert-screen" id="screen18">
             <div class="alert-header">
                 <div class="alert-title">
                     <span class="alert-icon">⚠️</span> ATENÇÃO, <span id="userNameAlert">Nome</span>! Pelas suas respostas, seu corpo tá no modo ACÚMULO DE GORDURA. Se não agir HOJE, essa situação tende a PIORAR.
                 </div>
                 <div class="alert-subtitle">
-                    Seu IMC: 21.60
+                    Seu IMC: <span id="bmiHeaderVal" style="font-weight: bold; color: #dc3545;">21.60</span>
                 </div>
             </div>
 
             <div class="imc-section">
                 <div class="imc-title">Índice de Massa Corporal (IMC)</div>
-                <div class="imc-scale">
-                    <div class="imc-indicator">Abaixo do Peso</div>
-                    <div class="imc-indicator">Normal</div>
-                    <div class="imc-indicator">Sobrepeso</div>
-                    <div class="imc-indicator alert">Obesidade</div>
+                
+                <!-- Visual IMC Gauge Bar with Dynamic Marker Pin -->
+                <div class="imc-scale-wrapper" style="position: relative; margin: 30px 0 15px 0;">
+                    <div class="imc-scale" style="display: flex; height: 22px; border-radius: 11px; overflow: hidden; position: relative; background: #e0e0e0; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);">
+                        <div class="imc-segment abaixo" id="segAbaixo" style="flex: 20; background: #17a2b8; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold; transition: opacity 0.3s;">Abaixo</div>
+                        <div class="imc-segment normal" id="segNormal" style="flex: 30; background: #28a745; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold; transition: opacity 0.3s;">Normal</div>
+                        <div class="imc-segment sobrepeso" id="segSobrepeso" style="flex: 25; background: #ffc107; display: flex; align-items: center; justify-content: center; color: #333; font-size: 10px; font-weight: bold; transition: opacity 0.3s;">Sobrepeso</div>
+                        <div class="imc-segment obesidade" id="segObesidade" style="flex: 25; background: #dc3545; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold; transition: opacity 0.3s;">Obesidade</div>
+                    </div>
+                    
+                    <!-- Dynamic Marker Pin Pinpointing Calculated IMC -->
+                    <div id="imcMarker" style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); transition: left 0.4s ease-out; display: flex; flex-direction: column; align-items: center; z-index: 10;">
+                        <span id="imcMarkerText" style="background: #111; color: #fff; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: bold; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">21.60</span>
+                        <div style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #111;"></div>
+                    </div>
                 </div>
-                <div style="text-align: center; margin: 15px 0; font-size: 14px; color: #666;">
-                    <strong>Zona de Alerta</strong> - Seu resultado!
+
+                <div style="text-align: center; margin: 15px 0 5px 0; font-size: 14px; color: #333;">
+                    Classificação Calculada: <strong id="imcCategoryText" style="color: #28a745; font-size: 15px;">Peso normal</strong>
                 </div>
             </div>
 
@@ -1666,62 +1677,62 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                 <span id="userName2">Nome</span>, você está pronta para <span style="color: #28a745;">transformar seu corpo</span> e sua <span style="color: #28a745;">saúde?</span>
             </div>
 
-            <div class="comparison-images">
-                <div class="comparison-image">
-                    <!-- SUBSTITUA AQUI: Link da imagem comparação ANTES -->
-                    <img src="images/DgeYNYXrtun5.jpg" alt="Antes do Mounjaro">
-                    <div class="comparison-label">Este é você com 70 kg, antes do Mounjaro Caseiro</div>
+            <!-- Resumo de peso real do usuário (Imagem DgeYNYXrtun5.jpg removida) -->
+            <div class="weight-summary-card" style="background: #f8f9fa; border-radius: 15px; padding: 20px; margin: 20px 0; border: 1px solid #e9ecef; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
+                <div style="font-size: 16px; font-weight: bold; color: #333; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span>📊</span> Seu Resumo Personalizado
                 </div>
-         
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; color: #666; font-weight: 500;">Peso Atual</div>
+                        <div style="font-size: 22px; font-weight: bold; color: #dc3545;" id="summaryCurrentWeight">70 kg</div>
+                    </div>
+                    <div style="width: 1px; height: 35px; background: #dee2e6;"></div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; color: #666; font-weight: 500;">Peso Desejado</div>
+                        <div style="font-size: 22px; font-weight: bold; color: #28a745;" id="summaryGoalWeight">60 kg</div>
+                    </div>
+                </div>
+                <div style="background: #e8f5e9; border-radius: 10px; padding: 12px; color: #155724; font-size: 14px; font-weight: bold; border-left: 4px solid #28a745;" id="summaryGoalText">
+                    Seu objetivo é reduzir aproximadamente 10 kg.
+                </div>
             </div>
 
             <div class="health-metrics">
                 <div class="metric-row">
                     <div class="metric-label">Metabolismo</div>
-                    <div class="metric-bars">
-                        <div class="metric-bar before"></div>
-                        <div class="metric-bar after"></div>
-                    </div>
+                    <div style="font-weight: bold; font-size: 14px;" id="metricValMetabolism">Lento</div>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 15px;">
-                    <span>Lento</span>
-                    <span>Acelerado</span>
+                    <span id="labelMetaBefore">Lento</span>
+                    <span id="labelMetaAfter" style="color: #28a745;">Acelerado</span>
                 </div>
 
                 <div class="metric-row">
                     <div class="metric-label">Nível de estresse</div>
-                    <div class="metric-bars">
-                        <div class="metric-bar before"></div>
-                        <div class="metric-bar after"></div>
-                    </div>
+                    <div style="font-weight: bold; font-size: 14px;" id="metricValStress">Alto</div>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 15px;">
-                    <span>Alto</span>
-                    <span>Baixo</span>
+                    <span id="labelStressBefore">Alto</span>
+                    <span id="labelStressAfter" style="color: #28a745;">Baixo</span>
                 </div>
 
                 <div class="metric-row">
                     <div class="metric-label">Nível de energia</div>
-                    <div class="metric-bars">
-                        <div class="metric-bar before"></div>
-                        <div class="metric-bar after"></div>
-                    </div>
+                    <div style="font-weight: bold; font-size: 14px;" id="metricValEnergy">Fraco</div>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 15px;">
-                    <span>Fraco</span>
-                    <span>Forte</span>
+                    <span id="labelEnergyBefore">Fraco</span>
+                    <span id="labelEnergyAfter" style="color: #28a745;">Forte</span>
                 </div>
 
                 <div class="metric-row">
                     <div class="metric-label">Riscos de doenças</div>
-                    <div class="metric-bars">
-                        <div class="metric-bar before"></div>
-                        <div class="metric-bar after"></div>
-                    </div>
+                    <div style="font-weight: bold; font-size: 14px;" id="metricValRisk">Alto</div>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 15px;">
-                    <span>Alto</span>
-                    <span>Baixo</span>
+                    <span id="labelRiskBefore">Alto</span>
+                    <span id="labelRiskAfter" style="color: #28a745;">Baixo</span>
                 </div>
             </div>
 
@@ -1957,6 +1968,311 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
         let isDragging = false;
         let dragType = '';
 
+        // --- CENTRALIZED QUIZ BUSINESS LOGIC & MATH ---
+        function calculateBMI(weightKg, heightInput) {
+            const weight = parseFloat(weightKg);
+            const height = parseFloat(heightInput);
+
+            if (isNaN(weight) || weight <= 0) return null;
+            if (isNaN(height) || height <= 0) return null;
+
+            // Height normalization: convert cm (>3) to meters
+            const heightM = height > 3 ? height / 100 : height;
+            
+            const bmiRaw = weight / (heightM * heightM);
+            const bmi = Math.round(bmiRaw * 100) / 100;
+
+            let category = '';
+            let categoryKey = '';
+            let categoryColor = '';
+
+            if (bmi < 18.5) {
+                category = 'Abaixo do peso';
+                categoryKey = 'abaixo';
+                categoryColor = '#17a2b8';
+            } else if (bmi < 25.0) {
+                category = 'Peso normal';
+                categoryKey = 'normal';
+                categoryColor = '#28a745';
+            } else if (bmi < 30.0) {
+                category = 'Sobrepeso';
+                categoryKey = 'sobrepeso';
+                categoryColor = '#ffc107';
+            } else {
+                category = 'Obesidade';
+                categoryKey = 'obesidade';
+                categoryColor = '#dc3545';
+            }
+
+            // Piecewise linear marker pin position formula (0% to 100%)
+            let markerPos = 50;
+            if (bmi < 18.5) {
+                markerPos = 0 + (Math.max(12, bmi) - 12) / (18.5 - 12) * 20;
+            } else if (bmi < 25.0) {
+                markerPos = 20 + (bmi - 18.5) / (24.9 - 18.5) * 30;
+            } else if (bmi < 30.0) {
+                markerPos = 50 + (bmi - 25.0) / (29.9 - 25.0) * 25;
+            } else {
+                markerPos = 75 + (Math.min(42, bmi) - 30.0) / (42.0 - 30.0) * 25;
+            }
+            markerPos = Math.max(3, Math.min(97, Math.round(markerPos * 10) / 10));
+
+            return { bmi, category, categoryKey, categoryColor, markerPos };
+        }
+
+        function calculateQuizResults() {
+            const bmiRes = calculateBMI(currentWeight, currentHeight) || {
+                bmi: 24.22,
+                category: 'Peso normal',
+                categoryKey: 'normal',
+                categoryColor: '#28a745',
+                markerPos: 47
+            };
+
+            const weight = parseFloat(currentWeight) || 70;
+            const goal = parseFloat(goalWeight) || 60;
+            const weightDiff = Math.max(0, Math.round((weight - goal) * 10) / 10);
+
+            // A. Metabolismo: "Lento" ou "Acelerado"
+            let metabolismPts = 0;
+            if (bmiRes.bmi >= 25.0) metabolismPts += 2;
+            if (answers.bodyType === 'flacido' || answers.bodyType === 'sobrepeso') metabolismPts += 1;
+            if (answers.water === 'cafe-cha' || answers.water === '1-2-copos') metabolismPts += 1;
+            if (answers.obstacles === 'tempo' || answers.obstacles === 'autocontrole') metabolismPts += 1;
+            const metabolism = metabolismPts >= 2 ? 'Lento' : 'Acelerado';
+
+            // B. Nível de Estresse: "Alto" ou "Baixo"
+            let stressPts = 0;
+            if (answers.obstacles === 'tempo' || answers.obstacles === 'financeiro') stressPts += 1;
+            if (selectedBenefits.includes('estresse') || selectedBenefits.includes('sono')) stressPts += 1;
+            if (['parceiro', 'fotos', 'social'].includes(answers.weightImpact)) stressPts += 1;
+            if (['nao-acima-peso', 'nao-perder-peso'].includes(answers.happiness)) stressPts += 1;
+            const stress = stressPts >= 2 ? 'Alto' : 'Baixo';
+
+            // C. Nível de Energia: "Fraco" ou "Forte"
+            let energyPts = 0;
+            if (answers.water === 'cafe-cha' || answers.water === '1-2-copos') energyPts += 1;
+            if (selectedBenefits.includes('energia') || selectedBenefits.includes('sono')) energyPts += 1;
+            if (bmiRes.bmi >= 28.0) energyPts += 1;
+            if (answers.bodyType === 'flacido') energyPts += 1;
+            const energy = energyPts >= 2 ? 'Fraco' : 'Forte';
+
+            // D. Riscos de Doenças: "Alto" ou "Baixo" (Indicador de alerta sem fins de diagnóstico médico)
+            let riskPts = 0;
+            if (bmiRes.bmi >= 27.5) riskPts += 2;
+            if (weightDiff >= 15 || ['16-20kg', 'mais-20kg'].includes(answers.weight)) riskPts += 1;
+            if (answers.bodyType === 'sobrepeso') riskPts += 1;
+            const healthRisk = riskPts >= 2 ? 'Alto' : 'Baixo';
+
+            return {
+                weight,
+                goal,
+                weightDiff,
+                bmi: bmiRes.bmi,
+                category: bmiRes.category,
+                categoryKey: bmiRes.categoryKey,
+                categoryColor: bmiRes.categoryColor,
+                markerPos: bmiRes.markerPos,
+                metabolism,
+                stress,
+                energy,
+                healthRisk
+            };
+        }
+
+        // --- STATE PERSISTENCE ---
+        function saveQuizState() {
+            try {
+                const nameInput = document.getElementById('nameInput');
+                const state = {
+                    currentScreen,
+                    answers,
+                    selectedBenefits,
+                    currentWeight,
+                    currentHeight,
+                    goalWeight,
+                    userName: nameInput ? nameInput.value : ''
+                };
+                localStorage.setItem('mounjaro_quiz_state', JSON.stringify(state));
+            } catch (e) {
+                console.error('Erro ao salvar estado:', e);
+            }
+        }
+
+        function loadQuizState() {
+            try {
+                const raw = localStorage.getItem('mounjaro_quiz_state');
+                if (!raw) return;
+                const state = JSON.parse(raw);
+                if (!state) return;
+
+                if (typeof state.currentScreen === 'number' && state.currentScreen >= 1 && state.currentScreen <= totalScreens) {
+                    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+                    currentScreen = state.currentScreen;
+                    const targetScreen = document.getElementById('screen' + currentScreen);
+                    if (targetScreen) targetScreen.classList.add('active');
+                    updateProgress();
+                }
+
+                if (state.answers && typeof state.answers === 'object') {
+                    answers = state.answers;
+                    for (let cat in answers) {
+                        const val = answers[cat];
+                        const elem = document.querySelector(`[onclick*="'${cat}'"][onclick*="'${val}'"]`);
+                        if (elem) {
+                            const siblings = elem.parentNode.children;
+                            for (let s of siblings) s.classList.remove('selected');
+                            elem.classList.add('selected');
+                        }
+                    }
+                }
+
+                if (Array.isArray(state.selectedBenefits)) {
+                    selectedBenefits = state.selectedBenefits;
+                    selectedBenefits.forEach(val => {
+                        const cbElem = document.querySelector(`.checkbox-option[onclick*="'${val}'"]`);
+                        if (cbElem) {
+                            cbElem.classList.add('selected');
+                            const cb = cbElem.querySelector('.checkbox');
+                            if (cb) cb.classList.add('checked');
+                        }
+                    });
+                    const continueButton = document.getElementById('benefitsButton');
+                    if (continueButton) continueButton.disabled = selectedBenefits.length === 0;
+                }
+
+                if (typeof state.currentWeight === 'number') {
+                    currentWeight = state.currentWeight;
+                    updateSliderVisual('weight', currentWeight, 40, 150);
+                }
+                if (typeof state.currentHeight === 'number') {
+                    currentHeight = state.currentHeight;
+                    updateSliderVisual('height', currentHeight, 140, 210);
+                }
+                if (typeof state.goalWeight === 'number') {
+                    goalWeight = state.goalWeight;
+                    updateSliderVisual('goal', goalWeight, 35, 120);
+                }
+
+                if (state.userName) {
+                    const nameInput = document.getElementById('nameInput');
+                    if (nameInput) {
+                        nameInput.value = state.userName;
+                        const nameBtn = document.getElementById('nameButton');
+                        if (nameBtn) nameBtn.disabled = false;
+                    }
+                }
+
+                updateNames();
+                updateResultScreen();
+            } catch (e) {
+                console.error('Erro ao carregar estado:', e);
+            }
+        }
+
+        function updateSliderVisual(type, val, min, max) {
+            const slider = document.getElementById(type + 'Slider');
+            if (!slider) return;
+            const percentage = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
+            const thumb = slider.querySelector('.slider-thumb');
+            const fill = slider.querySelector('.slider-fill');
+            if (thumb) thumb.style.left = `calc(${percentage}% - 11px)`;
+            if (fill) fill.style.width = percentage + '%';
+
+            if (type === 'weight') {
+                const valDisp = document.getElementById('weightValue');
+                if (valDisp) valDisp.innerHTML = val + '<span style="font-size: 24px;">kg</span>';
+            } else if (type === 'height') {
+                const valDisp = document.getElementById('heightValue');
+                if (valDisp) valDisp.innerHTML = val + '<span style="font-size: 24px;">cm</span>';
+            } else if (type === 'goal') {
+                const valDisp = document.getElementById('goalValue');
+                if (valDisp) valDisp.innerHTML = val + '<span style="font-size: 24px;">kg</span>';
+            }
+        }
+
+        function updateNames() {
+            const nameInput = document.getElementById('nameInput');
+            const name = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Nome';
+            const userName = document.getElementById('userName');
+            const userNameAlert = document.getElementById('userNameAlert');
+            const userName2 = document.getElementById('userName2');
+            if (userName) userName.textContent = name;
+            if (userNameAlert) userNameAlert.textContent = name;
+            if (userName2) userName2.textContent = name;
+        }
+
+        function updateResultScreen() {
+            const res = calculateQuizResults();
+            if (!res) return;
+
+            // Update Screen 18 (IMC)
+            const bmiHeaderVal = document.getElementById('bmiHeaderVal');
+            if (bmiHeaderVal) bmiHeaderVal.textContent = res.bmi.toFixed(2);
+
+            const imcMarker = document.getElementById('imcMarker');
+            const imcMarkerText = document.getElementById('imcMarkerText');
+            if (imcMarkerText) imcMarkerText.textContent = res.bmi.toFixed(2);
+            if (imcMarker) imcMarker.style.left = res.markerPos + '%';
+
+            const imcCategoryText = document.getElementById('imcCategoryText');
+            if (imcCategoryText) {
+                imcCategoryText.textContent = res.category;
+                imcCategoryText.style.color = res.categoryColor;
+            }
+
+            // Highlights
+            ['segAbaixo', 'segNormal', 'segSobrepeso', 'segObesidade'].forEach(id => {
+                const elem = document.getElementById(id);
+                if (elem) elem.style.opacity = '0.4';
+            });
+            const activeSegMap = {
+                'abaixo': 'segAbaixo',
+                'normal': 'segNormal',
+                'sobrepeso': 'segSobrepeso',
+                'obesidade': 'segObesidade'
+            };
+            const activeElem = document.getElementById(activeSegMap[res.categoryKey]);
+            if (activeElem) activeElem.style.opacity = '1.0';
+
+            // Update Screen 19 (Summary & Metrics)
+            const summaryCurrentWeight = document.getElementById('summaryCurrentWeight');
+            const summaryGoalWeight = document.getElementById('summaryGoalWeight');
+            const summaryGoalText = document.getElementById('summaryGoalText');
+
+            if (summaryCurrentWeight) summaryCurrentWeight.textContent = res.weight + ' kg';
+            if (summaryGoalWeight) summaryGoalWeight.textContent = res.goal + ' kg';
+            if (summaryGoalText) {
+                if (res.weightDiff > 0) {
+                    summaryGoalText.textContent = `Seu objetivo é reduzir aproximadamente ${res.weightDiff} kg.`;
+                } else {
+                    summaryGoalText.textContent = `Seu objetivo é manter seu peso ideal!`;
+                }
+            }
+
+            const metricValMetabolism = document.getElementById('metricValMetabolism');
+            const metricValStress = document.getElementById('metricValStress');
+            const metricValEnergy = document.getElementById('metricValEnergy');
+            const metricValRisk = document.getElementById('metricValRisk');
+
+            if (metricValMetabolism) {
+                metricValMetabolism.textContent = res.metabolism;
+                metricValMetabolism.style.color = res.metabolism === 'Acelerado' ? '#28a745' : '#dc3545';
+            }
+            if (metricValStress) {
+                metricValStress.textContent = res.stress;
+                metricValStress.style.color = res.stress === 'Baixo' ? '#28a745' : '#dc3545';
+            }
+            if (metricValEnergy) {
+                metricValEnergy.textContent = res.energy;
+                metricValEnergy.style.color = res.energy === 'Forte' ? '#28a745' : '#dc3545';
+            }
+            if (metricValRisk) {
+                metricValRisk.textContent = res.healthRisk;
+                metricValRisk.style.color = res.healthRisk === 'Baixo' ? '#28a745' : '#dc3545';
+            }
+        }
+
         function updateProgress() {
             const progress = (currentScreen - 1) / (totalScreens - 1) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
@@ -1969,17 +2285,9 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                 document.getElementById('screen' + currentScreen).classList.add('active');
                 updateProgress();
                 
-                // Update name in various screens
-                const name = document.getElementById('nameInput').value || 'Nome';
-                if (currentScreen === 6) {
-                    document.getElementById('userName').textContent = name;
-                }
-                if (currentScreen === 18) {
-                    document.getElementById('userNameAlert').textContent = name;
-                }
-                if (currentScreen === 19) {
-                    document.getElementById('userName2').textContent = name;
-                }
+                updateNames();
+                updateResultScreen();
+                saveQuizState();
 
                 // Start loading animations
                 if (currentScreen === 16) {
@@ -1992,19 +2300,15 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
         }
 
         function selectOption(element, category, value) {
-            // Remove selection from siblings
             const siblings = element.parentNode.children;
             for (let sibling of siblings) {
                 sibling.classList.remove('selected');
             }
             
-            // Add selection to clicked element
             element.classList.add('selected');
-            
-            // Store answer
             answers[category] = value;
+            saveQuizState();
             
-            // Auto advance after short delay
             setTimeout(() => {
                 nextScreen();
             }, 500);
@@ -2024,15 +2328,17 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                 selectedBenefits.push(value);
             }
             
-            // Enable continue button if at least one benefit is selected
             const continueButton = document.getElementById('benefitsButton');
             continueButton.disabled = selectedBenefits.length === 0;
+            saveQuizState();
         }
 
         // Name input validation
         document.getElementById('nameInput').addEventListener('input', function() {
             const nameButton = document.getElementById('nameButton');
             nameButton.disabled = this.value.trim().length === 0;
+            updateNames();
+            saveQuizState();
         });
 
         // Slider functionality with expanded ranges
@@ -2111,9 +2417,9 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             fill.style.width = percentage + '%';
             
             if (dragType === 'weight') {
-                // Expanded range: 40kg to 150kg
                 currentWeight = Math.round(40 + (percentage / 100) * 110);
-                const unit = document.querySelector('#screen12 .unit-button.active').textContent;
+                const unitElem = document.querySelector('#screen12 .unit-button.active');
+                const unit = unitElem ? unitElem.textContent : 'kg';
                 const valueDisplay = document.getElementById('weightValue');
                 if (unit === 'kg') {
                     valueDisplay.innerHTML = currentWeight + '<span style="font-size: 24px;">kg</span>';
@@ -2122,9 +2428,9 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                     valueDisplay.innerHTML = lbs + '<span style="font-size: 24px;">lb</span>';
                 }
             } else if (dragType === 'height') {
-                // Expanded range: 140cm to 210cm
                 currentHeight = Math.round(140 + (percentage / 100) * 70);
-                const unit = document.querySelector('#screen13 .unit-button.active').textContent;
+                const unitElem = document.querySelector('#screen13 .unit-button.active');
+                const unit = unitElem ? unitElem.textContent : 'cm';
                 const valueDisplay = document.getElementById('heightValue');
                 if (unit === 'cm') {
                     valueDisplay.innerHTML = currentHeight + '<span style="font-size: 24px;">cm</span>';
@@ -2133,9 +2439,9 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                     valueDisplay.innerHTML = inches + '<span style="font-size: 24px;">pol</span>';
                 }
             } else if (dragType === 'goal') {
-                // Expanded range: 35kg to 120kg
                 goalWeight = Math.round(35 + (percentage / 100) * 85);
-                const unit = document.querySelector('#screen14 .unit-button.active').textContent;
+                const unitElem = document.querySelector('#screen14 .unit-button.active');
+                const unit = unitElem ? unitElem.textContent : 'kg';
                 const valueDisplay = document.getElementById('goalValue');
                 if (unit === 'kg') {
                     valueDisplay.innerHTML = goalWeight + '<span style="font-size: 24px;">kg</span>';
@@ -2144,11 +2450,14 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
                     valueDisplay.innerHTML = lbs + '<span style="font-size: 24px;">lb</span>';
                 }
             }
+            updateResultScreen();
+            saveQuizState();
         }
 
         function stopDrag() {
             isDragging = false;
             dragType = '';
+            saveQuizState();
             document.removeEventListener('mousemove', handleDrag);
             document.removeEventListener('mouseup', stopDrag);
             document.removeEventListener('touchmove', handleDrag);
@@ -2185,8 +2494,9 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             }
         });
 
-        // Initialize progress
+        // Initialize progress & load persisted state if available
         updateProgress();
+        loadQuizState();
     </script>
 
 
