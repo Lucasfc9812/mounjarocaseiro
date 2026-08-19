@@ -2107,36 +2107,11 @@ src="https://www.facebook.com/tr?id=799172655912239&amp;ev=PageView&amp;noscript
             const goal = parseFloat(goalWeight) || 60;
             const weightDiff = Math.max(0, Math.round((weight - goal) * 10) / 10);
 
-            // A. Metabolismo: "Lento" ou "Acelerado"
-            let metabolismPts = 0;
-            if (bmiRes.bmi >= 25.0) metabolismPts += 2;
-            if (answers.bodyType === 'flacido' || answers.bodyType === 'sobrepeso') metabolismPts += 1;
-            if (answers.water === 'cafe-cha' || answers.water === '1-2-copos') metabolismPts += 1;
-            if (answers.obstacles === 'tempo' || answers.obstacles === 'autocontrole') metabolismPts += 1;
-            const metabolism = metabolismPts >= 2 ? 'Lento' : 'Acelerado';
-
-            // B. Nível de Estresse: "Alto" ou "Baixo"
-            let stressPts = 0;
-            if (answers.obstacles === 'tempo' || answers.obstacles === 'financeiro') stressPts += 1;
-            if (selectedBenefits.includes('estresse') || selectedBenefits.includes('sono')) stressPts += 1;
-            if (['parceiro', 'fotos', 'social'].includes(answers.weightImpact)) stressPts += 1;
-            if (['nao-acima-peso', 'nao-perder-peso'].includes(answers.happiness)) stressPts += 1;
-            const stress = stressPts >= 2 ? 'Alto' : 'Baixo';
-
-            // C. Nível de Energia: "Fraco" ou "Forte"
-            let energyPts = 0;
-            if (answers.water === 'cafe-cha' || answers.water === '1-2-copos') energyPts += 1;
-            if (selectedBenefits.includes('energia') || selectedBenefits.includes('sono')) energyPts += 1;
-            if (bmiRes.bmi >= 28.0) energyPts += 1;
-            if (answers.bodyType === 'flacido') energyPts += 1;
-            const energy = energyPts >= 2 ? 'Fraco' : 'Forte';
-
-            // D. Riscos de Doenças: "Alto" ou "Baixo" (Indicador de alerta sem fins de diagnóstico médico)
-            let riskPts = 0;
-            if (bmiRes.bmi >= 27.5) riskPts += 2;
-            if (weightDiff >= 15 || ['16-20kg', 'mais-20kg'].includes(answers.weight)) riskPts += 1;
-            if (answers.bodyType === 'sobrepeso') riskPts += 1;
-            const healthRisk = riskPts >= 2 ? 'Alto' : 'Baixo';
+            // Métricas de Diagnóstico: Fixadas em estado de alerta/necessidade de melhora para engajamento no funil
+            const metabolism = 'Lento';
+            const stress = 'Alto';
+            const energy = 'Fraco';
+            const healthRisk = 'Alto';
 
             return {
                 weight,
